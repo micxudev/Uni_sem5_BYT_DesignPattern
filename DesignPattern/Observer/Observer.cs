@@ -10,5 +10,16 @@ namespace DesignPattern.Observer
         //3. Registering the Observer with the Subject
         //4. Removing the Observer from the Subject
         //5. Observer will get a notification from the Subject using the following Method
+
+        public string UserName { get; } = userName;
+
+        public void AddSubscriber(ISubject subject) => subject.RegisterObserver(this);
+
+        public void RemoveSubscriber(ISubject subject) => subject.RemoveObserver(this);
+
+        public void Update(string availability)
+        {
+            Console.WriteLine(UserName + " got notified that the product is now : " + availability);
+        }
     }
 }
